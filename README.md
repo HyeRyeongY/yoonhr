@@ -1,2 +1,2 @@
-# gnyng
-my portfolio page with notion
+# yoonhr
+my personal portfolio site
