@@ -1,0 +1,28 @@
+{
+    "name": "nuxt-app",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "dependencies": {
+        "@notionhq/client": "^2.3.0",
+        "@nuxtjs/google-fonts": "^3.2.0",
+        "@nuxtjs/tailwindcss": "^6.13.2",
+        "@studio-freight/lenis": "^1.0.42",
+        "@types/three": "^0.174.0",
+        "gsap": "^3.13.0",
+        "matter-js": "^0.20.0",
+        "nuxt": "^3.15.4",
+        "prismjs": "^1.30.0",
+        "sass": "^1.85.1",
+        "shiki": "^3.2.2",
+        "three": "^0.174.0",
+        "troika-three-text": "^0.52.3",
+        "vue": "latest",
+        "vue-router": "latest"
+    }
+}

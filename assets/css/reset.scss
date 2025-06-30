@@ -1,0 +1,516 @@
+@charset "UTF-8";
+/* --------------------------------------------------------------------------
+* Reset
+-------------------------------------------------------------------------- */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  font-family: inherit;
+  vertical-align: baseline;
+  font-style: initial;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+button, input {
+  border: 0;
+}
+
+input[type=password] {
+  -webkit-text-security: disc !important;
+  font-family: text-security-disc !important;
+}
+
+::after, ::before {
+  position: absolute;
+  content: "";
+  display: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+em, strong {
+  font-weight: 700;
+}
+
+button {
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+mark {
+  background: none;
+}
+
+/* --------------------------------------------------------------------------
+   2.0 탭 바로가기
+   -------------------------------------------------------------------------- */
+#skip a {
+  position: absolute;
+  left: -9999%;
+}
+
+#skip a:focus {
+  display: block;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+/* --------------------------------------------------------------------------
+   3.0 기본 스타일 정의
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   4.0 링크 정의
+   -------------------------------------------------------------------------- */
+a:link, a:visited { /* color: #4d4d4d; */
+  text-decoration: none;
+}
+
+a:active, a:hover { /* color: #525252; */
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   5.0 해상도별 폰트 사이즈 정의
+   -------------------------------------------------------------------------- */
+/* root em 기준으로 해상도별 배율값을 사용하기 위해 font-size는 계산의 편의상 반드시 10으로 절대 고정합니다. */
+html {
+  letter-spacing: 0;
+  line-height: 1;
+  font-size: 10px;
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 9.75px;
+  }
+}
+@media (max-width: 1400px) {
+  html {
+    font-size: 9.5px;
+  }
+}
+@media (max-width: 1280px) {
+  html {
+    font-size: 9.25px;
+  }
+}
+@media (max-width: 1024px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 8.75px;
+  }
+}
+@media (max-width: 640px) {
+  html {
+    font-size: 8.5px;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 8.25px;
+  }
+}
+@media (max-width: 320px) {
+  html {
+    font-size: 8px;
+  }
+}
+/* --------------------------------------------------------------------------
+   6.0 이미지 엘리먼트 정의-
+   ------------------------------------------------------------------------- */
+img {
+  max-width: 100%;
+  border: 0px;
+  vertical-align: top;
+}
+
+/* --------------------------------------------------------------------------
+   10.0 Common
+   -------------------------------------------------------------------------- */
+body {
+  font-family: "Pretendard", "맑은 고딕", "malgun gothic", "AppleGothicNeoSD", "Apple SD 산돌고딕 Neo", "Microsoft NeoGothic", "Droid sans", sans-serif;
+  font-weight: initial;
+}
+
+/* IE에서 input 타입의 password의 placeholder 폰트 설정 */
+input:-ms-input-placeholder {
+  font-family: "Pretendard", "맑은 고딕", "malgun gothic", "AppleGothicNeoSD", "Apple SD 산돌고딕 Neo", "Microsoft NeoGothic", "Droid sans", sans-serif;
+}
+
+mark {
+  color: #d60011;
+}
+
+.init {
+  font-size: 0;
+}
+.init > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.init > img {
+  vertical-align: middle;
+}
+.init.t > * {
+  vertical-align: top;
+}
+.init.m > * {
+  vertical-align: middle;
+}
+.init.b > * {
+  vertical-align: bottom;
+}
+
+caption, legend {
+  position: fixed;
+  top: -100vw;
+  width: 0;
+  height: 0;
+  text-indent: -100vh;
+  font-size: 0;
+  opacity: 0;
+  z-index: -999;
+}
+
+/* 셀렉트 박스 및 체크박스, 라디오버튼 커스텀 스타일 초기화 */
+.ui {
+  /* --------------------------------------------------------------------------
+     11.0 텍스트 블록 색상
+     -------------------------------------------------------------------------- */
+}
+.ui ::selection {
+  background-color: #eee;
+  color: #111;
+}
+
+/* --------------------------------------------------------------------------
+   12.0 크롬기반 브라우저 기본 스크롤 스타일 정의 (IE 11이하 적용되지 않습니다.)
+   -------------------------------------------------------------------------- */
+
+
+   ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #000;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 135, 139, 0.8);
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 9px;
+  height: 9px;
+}
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: #F1F3F8;
+  border-radius: 4px;
+}
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  width: 3px;
+  height: 3px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background: #E2E6EE;
+}
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 135, 139, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   13.0 기본 팝업
+   -------------------------------------------------------------------------- */
+.igns-pop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 2rem;
+  background: rgba(21, 31, 46, 0.5);
+  z-index: 19;
+  font-size: 0;
+  text-align: center;
+  overflow: auto;
+}
+.igns-pop .section {
+  opacity: 1;
+  position: relative;
+  max-height: 100%;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  background: #fff;
+  text-align: left;
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .igns-pop .section {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents {
+  height: auto;
+  padding: 3rem;
+  font-size: 1.6rem;
+  max-height: calc(100vh - 4rem);
+  line-height: 1.5;
+  color: #000000;
+  overflow-y: auto;
+}
+.igns-pop .section .contents.ul {
+  width: 1560px;
+}
+@media (max-width: 1600px) {
+  .igns-pop .section .contents.ul {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents.el {
+  width: 1360px;
+}
+@media (max-width: 1400px) {
+  .igns-pop .section .contents.el {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents.lg {
+  width: 1260px;
+}
+@media (max-width: 1280px) {
+  .igns-pop .section .contents.lg {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents.md {
+  width: 984px;
+}
+@media (max-width: 1024px) {
+  .igns-pop .section .contents.md {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents.sm {
+  width: 728px;
+}
+@media (max-width: 768px) {
+  .igns-pop .section .contents.sm {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents.es {
+  width: 600px;
+}
+@media (max-width: 640px) {
+  .igns-pop .section .contents.es {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents.us {
+  width: 380px;
+}
+@media (max-width: 420px) {
+  .igns-pop .section .contents.us {
+    width: 100%;
+  }
+}
+.igns-pop .section .contents h3 {
+  position: relative;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #222;
+}
+.igns-pop .section .contents h4 {
+  font-size: 1.7rem;
+}
+@media (max-width: 1024px) {
+  .igns-pop .section .contents {
+    padding: 5rem 2rem;
+  }
+  .igns-pop .section .contents h3 {
+    font-size: 2.5rem;
+  }
+}
+.igns-pop .section .contents .scroll {
+  border-top: 2px solid #0277c5;
+  border-bottom: 1px solid #ddd;
+}
+.igns-pop .section button.close-pop:not(.btn) {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  right: 0;
+  top: 0;
+}
+
+.toast-popup {
+  position: fixed;
+  width: 300px;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  padding: 1rem;
+}
+.toast-popup .section {
+  width: 100%;
+  background: #eee;
+  border: 3px solid #ddd;
+  padding: 2rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+.toast-popup .section h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.toast-popup .section p {
+  font-size: 1.4rem;
+}
+
+button.tooltip {
+  position: relative;
+  vertical-align: text-top;
+}
+button.tooltip i {
+  position: absolute;
+  width: 20rem;
+  padding: 5px 10px;
+  background: #219cf7;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-align: left;
+  color: #fff;
+  z-index: 2;
+}
+button.tooltip i::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top: 8px solid #219cf7;
+  left: 50%;
+  bottom: -12px;
+  margin-left: -6px;
+}
+
+/* --------------------------------------------------------------------------
+   15.0 기본 테이블
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   17.0 기본 페이징 스타일 ( '.init' 클래스가 동반되어야 합니다. )
+   -------------------------------------------------------------------------- */
+.pagination > * {
+  width: 3.7rem;
+  height: 3.7rem;
+  line-height: 3.7rem;
+  margin: 2px;
+  border-radius: 3.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #626262;
+  background: no-repeat center;
+  transition: all 0.2s ease;
+}
+@media (max-width: 420px) {
+  .pagination > * {
+    width: 2.5rem;
+    height: 3.1rem;
+    line-height: 3.1rem;
+    border-radius: 3.1rem;
+  }
+}
+.pagination em {
+  border-radius: 0;
+  background: #005aab;
+  border-color: #005aab;
+  color: #fff;
+}
+.pagination img {
+  vertical-align: baseline;
+}
+.pagination a.first,
+.pagination a.prev,
+.pagination a.next,
+.pagination a.last {
+  line-height: calc(3.7rem - 2px);
+  border: 1px solid #ddd;
+}
+@media (max-width: 420px) {
+  .pagination a.first,
+  .pagination a.prev,
+  .pagination a.next,
+  .pagination a.last {
+    border: 0;
+  }
+}
+.pagination a.prev {
+  margin-right: 1rem;
+}
+.pagination a.next {
+  margin-left: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   수평, 수직 가로선
+   -------------------------------------------------------------------------- */
+hr:not(.vertical) {
+  border: initial;
+}
