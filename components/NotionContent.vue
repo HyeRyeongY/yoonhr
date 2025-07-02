@@ -116,7 +116,7 @@ const renderBlock = (block) => {
     if (block.type === "ul" || block.type === "ol") {
         return h(
             block.type,
-            { class: "ml-6 list-disc marker:text-gray-500 space-y-1" },
+            { class: "ml-12 list-disc marker:text-black space-y-1" },
             block.items.map((item) => h("li", { key: item.id }, renderRichText(item[item.type]?.rich_text || [])))
         );
     }
@@ -126,14 +126,14 @@ const renderBlock = (block) => {
 
     switch (type) {
         case "paragraph":
-            return h("p", { class: "text-base leading-7" }, renderRichText(text));
+            return h("p", {}, renderRichText(text));
 
         case "heading_1":
-            return h("h1", { class: "text-3xl font-extrabold mt-6" }, renderRichText(text));
+            return h("h1", { class: "text-4xl font-extrabold mb-8 mt-12" }, renderRichText(text));
         case "heading_2":
-            return h("h2", { class: "text-2xl font-extrabold mt-5" }, renderRichText(text));
+            return h("h2", { class: "text-4xl font-bold mb-6 mt-10" }, renderRichText(text));
         case "heading_3":
-            return h("h3", { class: "text-xl font-bold mt-4" }, renderRichText(text));
+            return h("h3", { class: "text-3xl font-bold mb-4 mt-8" }, renderRichText(text));
 
         case "quote":
             return h("blockquote", { class: "border-l-4 pl-4 italic text-gray-600 my-4" }, renderRichText(text));
@@ -142,7 +142,7 @@ const renderBlock = (block) => {
             return h(
                 "div",
                 {
-                    class: "bg-yellow-100 p-4 rounded-md border border-yellow-300 flex items-start space-x-2",
+                    class: "px-4 py-6 my-4 rounded-lg border-solid border border-gray-300 flex items-start space-x-2",
                 },
                 [block.callout.icon?.emoji && h("span", null, block.callout.icon.emoji), h("div", null, renderRichText(text))]
             );
@@ -234,6 +234,9 @@ const renderedBlocks = computed(() => groupListBlocks(props.blocks).map(renderBl
     padding: 100px 0;
     min-height: 100vh;
     font-family: "PretendardVariable", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: 400;
 
     .back {
         display: inline-flex;
