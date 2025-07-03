@@ -1,21 +1,30 @@
 <template>
     <header :class="{ light: isLight }">
         <ul class="gnb">
-            <li>
-                <a href="#yes" @click.prevent="navigateToAnchor('yes')"
-                    ><em>Y</em><span><strong>Yes.</strong><br />네</span></a
-                >
-            </li>
-            <li>
-                <a href="#here" @click.prevent="navigateToAnchor('here')"
-                    ><em>H</em><span><strong>Here.</strong><br />여기 있습니다</span></a
-                >
-            </li>
-            <li>
-                <a href="#ready" @click.prevent="navigateToAnchor('ready')"
-                    ><em>R</em><span><strong>Ready.</strong><br />준비됐습니다</span></a
-                >
-            </li>
+            <template v-if="currentPath === '/'">
+                <li>
+                    <a href="#yes" @click.prevent="navigateToAnchor('yes')"
+                        ><em>Y</em><span><strong>Yes.</strong><br />네</span></a
+                    >
+                </li>
+                <li>
+                    <a href="#here" @click.prevent="navigateToAnchor('here')"
+                        ><em>H</em><span><strong>Here.</strong><br />여기 있습니다</span></a
+                    >
+                </li>
+                <li>
+                    <a href="#ready" @click.prevent="navigateToAnchor('ready')"
+                        ><em>R</em><span><strong>Ready.</strong><br />준비됐습니다</span></a
+                    >
+                </li>
+            </template>
+            <template v-else>
+                <li>
+                    <NuxtLink to="/" class="back-home">
+                        <em>Home</em>
+                    </NuxtLink>
+                </li>
+            </template>
         </ul>
     </header>
     <div id="smooth-wrapper" class="default" :class="{ light: isLight }">
@@ -51,6 +60,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 //         effects: true, // data-speed, data-lag 등 효과 활성화
 //     });
 // });
+
+/* 현재 라우트 감시 */
+const currentPath = computed(() => route.path);
 
 /* menu click */
 const router = useRouter();

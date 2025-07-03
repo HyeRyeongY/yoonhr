@@ -117,6 +117,15 @@ header {
   }
   &.light {
     color: #000;
+    .gnb{
+      // background-color: rgba(0, 0, 0, 0.2);
+      border: 1px solid #000;
+      li a {
+        width: auto;
+        padding: 0 2rem;
+        text-shadow: none;
+      }
+    }
   }
 }
 
